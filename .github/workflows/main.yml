@@ -1,0 +1,18 @@
+name: github action
+on : push 
+jobs:
+  job1:
+    runs-on:ubuntu-latest
+    steps: 
+    - name :print trigger event 
+     run: echo "the job is triggerd by event ${{github.event_name }}"
+    - name :print the runner 
+     run: echo "the job is run on ${{os.runner }}"
+    - name : the branch i was on it 
+     run: echo "the branch i now on it is ${{ github.ref}}"
+    - name :checkout repoo
+     uses: action/checkout@v4
+    -run : echo"clone ${{github.repository}} repo"
+    - name: list files in repo
+      run :ls${{github.workspace}}
+
